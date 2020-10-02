@@ -197,10 +197,12 @@ void comandos(int comando_) {
   }
   if (comando_ == 5) {
     Serial.write("+ vasão \n");
-    ML_POR_SEGUNDO_CONTINUO = ML_POR_SEGUNDO_CONTINUO + 0.001;
+    ML_POR_SEGUNDO_CONTINUO = ML_POR_SEGUNDO_CONTINUO + 0.0001;
     calculations();
     stepsEnUsoContinuo = stepsEnUso(ML_POR_SEGUNDO_CONTINUO);
     stepsEnUsoRetracao = stepsEnUso(ML_DE_RETRACAO);
+    playConstante(false);
+    delay(1000);
   }
   if (comando_ == 6) {
     Serial.write("- vasão \n");
@@ -208,5 +210,7 @@ void comandos(int comando_) {
     calculations();
     stepsEnUsoContinuo = stepsEnUso(ML_POR_SEGUNDO_CONTINUO);
     stepsEnUsoRetracao = stepsEnUso(ML_DE_RETRACAO);
+    playConstante(false);
+    delay(1000);
   }
 }
